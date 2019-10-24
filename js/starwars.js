@@ -29,18 +29,34 @@ films.forEach(function(film) {
       let personDiv = document.createElement('div')
       let name = document.createElement('h1')
       let gender = document.createElement('h3')
-      let pic = document
+      let pic = document.createElement('img')
 
       personDiv.appendChild(name)
       personDiv.appendChild(gender)
+      personDiv.appendChild(pic)
+
+      let charNum = getCharNum(person.url)
 
       name.textContent = person.name
       gender.textContent = person.gender
+      pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
+
+
       mainArea.appendChild(personDiv)
 
-
-
   });
+
+  function getCharNum(charUrl) {
+    let end = charUrl.lastIndexOf('/')
+    let charId = charUrl.substring(end -2, end)
+    if (charId.indexOf('/') !== -1 ) {
+      return charId.slice (1,2) }
+      else {
+        return charId }
+      }
+    
+
+  
 
 const maleCharacters = people.filter(person => person.gender === 'male')
 console.log(maleCharacters)
