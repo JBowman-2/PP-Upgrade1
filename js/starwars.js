@@ -10,31 +10,13 @@ console.log('this is Javascript on the page')
 
 let mainHeader = document.querySelector('#mainHeader')
 
-let mainArea = document.querySelector('main')
+let mainArea = document.querySelector('#main')
 
 let vehicleArea = document.querySelector('#auto')
 
 let speciesArea = document.querySelector('#species')
 
-/* films.forEach(function(film) {
-    let filmDiv = document.createElement('div')
-    let title = document.createElement('h1')
-    let crawl = document.createElement('p')
-    let pic = document.createElement('img')
 
-    filmDiv.appendChild(title)
-    filmDiv.appendChild(crawl)
-    
-
-    title.textContent = film.title
-    crawl.innerText = film.opening_crawl
-
-    let filmNum = getCharNum(film.url)
-
-    pic.src = `https://starwars-visualguide.com/assets/img/films/${filmNum}.jpg`
-
-    videoArea.appendChild(filmDiv)
-  });*/
   
   vehicles.forEach(function(auto) {
     let autoDiv = document.createElement('div')
@@ -59,6 +41,7 @@ species.forEach(function(type) {
   let typeDiv = document.createElement('div')
   let name = document.createElement('h3')
   let pic = document.createElement('img')
+
 
   typeDiv.appendChild(name)
   typeDiv.appendChild(pic)
