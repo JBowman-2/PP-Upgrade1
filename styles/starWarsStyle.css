@@ -1,15 +1,94 @@
+body { 
+    margin: 0px;
+    padding: 0px;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+nav {
+    display: flex;
+    justify-content: left;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: red;   
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 3rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    list-style: none;
+    width: 250px;
+    font-size: 1.3rem;
+    color: white;
+    
+}
+
+.menu li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+    padding: .8rem;  
+}
+
+.menu li a:hover {
+    background-color: rgb(4, 3, 83);
+    color: white;
+ }
+
+#starWarsPath {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background: linear-gradient(to bottom, black 15%, rgba(27, 23, 231, 0.945) 100%);
+    width: 100%;
+    height: 100vh;
+    
+
+ }
+
+ #click {
+     display: flex;
+
+ }
+
+ #click img {
+     border: white solid 4px;
+     border-radius: 15px;
+ }
+
+
+
 h3, p {
     margin: 0px;
 }
+h1.SW {
+    font-size: 5rem;
+    color: white;
+    text-align: center;
+
+}
 h1 {
+    
     color: red;
     text-align: center;
 }
+
+
 
 p {
     text-align: center;
     color: black;
 }
+
+
 
 div {
     display: flex;
@@ -19,19 +98,23 @@ div {
     /* background-color: black; */
 }
 
+
+
 h3 {
     color: black;
 }
 
 main {
     display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   grid-gap: 2rem;
 }
 
-header {
+#mainHeader {
     display: flex;
+    flex-direction: row;
     justify-content: center;
+    border: none;
 }
 
 button {
@@ -39,5 +122,27 @@ button {
 }
 
 img {
-    width: 200px;
+    width: 250px;
+}
+
+#auto {
+    border: none;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-gap: 2rem;
+}
+
+#auto img {
+    width: 300px;
+}
+
+#species {
+    border: none;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 2rem;
+}
+
+#species img {
+    width: 250px;
 }

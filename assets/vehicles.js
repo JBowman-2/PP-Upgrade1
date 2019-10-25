@@ -397,6 +397,7 @@ export const vehicles = [
         "edited": "2014-12-22T18:21:16.072083Z",
         "url": "https://swapi.co/api/vehicles/38/"
     },
+    /*
     {
         "name": "Sith speeder",
         "model": "FC-20 speeder bike",
@@ -811,5 +812,5 @@ export const vehicles = [
         "created": "2014-12-20T18:34:12.541000Z",
         "edited": "2014-12-22T18:21:16.390980Z",
         "url": "https://swapi.co/api/vehicles/57/"
-    }
+    }*/
 ]

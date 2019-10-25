@@ -1,13 +1,22 @@
 import { films } from '../assets/films.js'
 import { people } from '../assets/people.js'
+import { vehicles } from '../assets/vehicles.js'
+import { species } from '../assets/species.js'
 
 console.log('this is Javascript on the page')
 
-let mainHeader = document.querySelector('header')
+// let videoArea = document.querySelector('#movie')
+
+
+let mainHeader = document.querySelector('#mainHeader')
 
 let mainArea = document.querySelector('main')
 
-films.forEach(function(film) {
+let vehicleArea = document.querySelector('#auto')
+
+let speciesArea = document.querySelector('#species')
+
+/* films.forEach(function(film) {
     let filmDiv = document.createElement('div')
     let title = document.createElement('h1')
     let crawl = document.createElement('p')
@@ -15,7 +24,7 @@ films.forEach(function(film) {
 
     filmDiv.appendChild(title)
     filmDiv.appendChild(crawl)
-    filmDiv.appendChild(pic)
+    
 
     title.textContent = film.title
     crawl.innerText = film.opening_crawl
@@ -24,10 +33,46 @@ films.forEach(function(film) {
 
     pic.src = `https://starwars-visualguide.com/assets/img/films/${filmNum}.jpg`
 
-    mainArea.appendChild(filmDiv)
-  });
+    videoArea.appendChild(filmDiv)
+  });*/
   
+  vehicles.forEach(function(auto) {
+    let autoDiv = document.createElement('div')
+    let name = document.createElement('h3')
+    let pic = document.createElement('img')
+
+    autoDiv.appendChild(name)
+    autoDiv.appendChild(pic)
+
+    let autoNum = getCharNum(auto.url)
+
+    name.textContent = auto.name
+    
+    pic.src = `https://starwars-visualguide.com/assets/img/vehicles/${autoNum}.jpg`
+
+
+    vehicleArea.appendChild(autoDiv)
+
+});
+
+species.forEach(function(type) {
+  let typeDiv = document.createElement('div')
+  let name = document.createElement('h3')
+  let pic = document.createElement('img')
+
+  typeDiv.appendChild(name)
+  typeDiv.appendChild(pic)
+
+  let speciesNum = getCharNum(type.url)
+
+  name.textContent = type.name
   
+  pic.src = `https://starwars-visualguide.com/assets/img/species/${speciesNum}.jpg`
+
+
+  speciesArea.appendChild(typeDiv)
+
+});
   
 
   people.forEach(function(person) {
@@ -69,10 +114,27 @@ console.log(maleCharacters)
 const femaleCharacters = people.filter(person => person.gender === 'female')
 console.log(femaleCharacters)
 
-const droid = people.filter(person => person.gender === 'n/a')
+const allCharacters = people.filter(person => person.gender)
 console.log(femaleCharacters)
 
+
+
 const allDivs = Array.from(mainArea.querySelectorAll('div'))
+
+let allButton = document.createElement('button')
+  allButton.textContent = "All Characters"
+  allButton.addEventListener('click', () => {
+    allCharacters.forEach(elt => {
+
+      let matchedDiv = allDivs.filter(element => {
+        return element.firstChild.textContent === elt.name
+      })
+      matchedDiv[0].setAttribute("style", "display: revert;")
+
+    })
+
+
+  })
 
 let maleButton = document.createElement('button')
   maleButton.textContent = "Male Charaters"
@@ -106,7 +168,7 @@ let maleButton = document.createElement('button')
 
   })
 
-
+  mainHeader.appendChild(allButton)
   mainHeader.appendChild(maleButton)
   mainHeader.appendChild(femaleButton)
 
