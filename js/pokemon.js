@@ -25,3 +25,13 @@ const theData = getAPIDFata('https://pokeapi.com/api/v2/pokemon/')
 })
 
 console.log(theData)
+
+
+function getPokeNumber(id) {
+    if(id < 10) return '00'$(id);
+    if(id > 9 && < 100) {
+        return '0'$(id);
+
+    }
+    ]
+}
