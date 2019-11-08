@@ -82,8 +82,9 @@ const noFemaleCharacters = people.filter(person => person.gender === 'female' ||
 
   const droidCharacters = people.filter(person => person.gender !== 'male' && person.gender !== 'female' && person.gender !== 'hermaphrodite')
   console.log(droidCharacters)
+  
 
-  allCharacters.forEach(function(person) {
+  allCharacters.forEach(function(person)  {
     let personDiv = document.createElement('div')
     let name = document.createElement('h3')
     let gender = document.createElement('p')
@@ -98,7 +99,7 @@ const noFemaleCharacters = people.filter(person => person.gender === 'female' ||
     name.textContent = person.name
     
     pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-    
+   
     mainArea.appendChild(personDiv)
 
 });
@@ -106,25 +107,29 @@ const noFemaleCharacters = people.filter(person => person.gender === 'female' ||
   const allDivs = Array.from(document.querySelectorAll('div'))
   
 
-  
+ 
 
 
 let maleButton = document.createElement('button')
   maleButton.textContent = 'Male Characters'
   maleButton.addEventListener('click', () => {
     noFemaleCharacters.forEach(elt => {
+      
 
       let matchedDiv = allDivs.find(element => {
         return element.firstChild.textContent === elt.name
       })
+      
       if(matchedDiv.getAttribute("style") === "display: none;") {
         console.log(matchedDiv)
+        
         matchedDiv.setAttribute("style", "display: revert;")
-        matchedDiv.classList.add('animated', 'rotateInDownRight')
+        
       }
       else {
-        matchedDiv.setAttribute("style", "display: none;")
         
+        matchedDiv.setAttribute("style", "display: none;")
+        matchedDiv.classList.add('animated', 'rotateInDownRight')
       }
 
     })
@@ -145,9 +150,11 @@ let maleButton = document.createElement('button')
         
       }
       else {
+        
         matchedDiv.setAttribute("style", "display: none;")
         matchedDiv.classList.add('animated', 'rotateInDownRight')
       }
+      
 
     })
   })
@@ -155,9 +162,8 @@ let maleButton = document.createElement('button')
   let droidButton = document.createElement('button')
   droidButton.textContent = 'Droids'
   droidButton.addEventListener('click', () => {
-    noMaleFemale.forEach(elt => {
-
-      
+ 
+      noMaleFemale.forEach(elt => {
 
       let matchedDiv = allDivs.find(element => {
         
@@ -166,12 +172,14 @@ let maleButton = document.createElement('button')
       
       if(matchedDiv.getAttribute("style") === "display: none;"){
         console.log(matchedDiv)
+
         matchedDiv.setAttribute("style", "display: revert;")
         
         
       }
       
       else {
+        
         matchedDiv.setAttribute("style", "display: none;")
         matchedDiv.classList.add('animated', 'rotateInDownRight')
       }
@@ -179,6 +187,10 @@ let maleButton = document.createElement('button')
 
     })
   })
+
+  
+  
+
 
   
  
@@ -384,7 +396,7 @@ let maleButton = document.createElement('button')
  
   */
 
-
+  
   mainHeader.appendChild(maleButton)
   mainHeader.appendChild(femaleButton)
   mainHeader.appendChild(droidButton)
