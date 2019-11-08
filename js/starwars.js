@@ -119,9 +119,11 @@ let maleButton = document.createElement('button')
       if(matchedDiv.getAttribute("style") === "display: none;") {
         console.log(matchedDiv)
         matchedDiv.setAttribute("style", "display: revert;")
+        matchedDiv.classList.add('animated', 'rotateInDownRight')
       }
       else {
         matchedDiv.setAttribute("style", "display: none;")
+        
       }
 
     })
@@ -135,12 +137,15 @@ let maleButton = document.createElement('button')
       let matchedDiv = allDivs.find(element => {
         return element.firstChild.textContent === elt.name
       })
-      if(matchedDiv.getAttribute("style") === "display: none;") {
+      if(matchedDiv.getAttribute("style") === "display: none;"){       
         console.log(matchedDiv)
+        
         matchedDiv.setAttribute("style", "display: revert;")
+        
       }
       else {
         matchedDiv.setAttribute("style", "display: none;")
+        matchedDiv.classList.add('animated', 'rotateInDownRight')
       }
 
     })
@@ -151,16 +156,25 @@ let maleButton = document.createElement('button')
   droidButton.addEventListener('click', () => {
     noMaleFemale.forEach(elt => {
 
+      
+
       let matchedDiv = allDivs.find(element => {
+        
         return element.firstChild.textContent === elt.name
       })
-      if(matchedDiv.getAttribute("style") === "display: none;") {
+      
+      if(matchedDiv.getAttribute("style") === "display: none;"){
         console.log(matchedDiv)
         matchedDiv.setAttribute("style", "display: revert;")
+        
+        
       }
+      
       else {
         matchedDiv.setAttribute("style", "display: none;")
+        matchedDiv.classList.add('animated', 'rotateInDownRight')
       }
+
 
     })
   })

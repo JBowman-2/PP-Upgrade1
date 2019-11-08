@@ -167,6 +167,16 @@ button {
     padding: 15px;
 }
 
+button:hover {
+    background-color: black;
+    font-weight: 700;
+    color: white;
+    border-radius: 15px;
+    font-size: 1.75rem;
+    margin: 5rem 2rem .5rem 2rem;
+    padding: 15px;
+}
+
 img {
     width: 215px;
     border-radius: 25px;
