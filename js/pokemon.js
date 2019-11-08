@@ -33,5 +33,5 @@ function getPokeNumber(id) {
         return '0'$(id);
 
     }
-    ]
+    
 }

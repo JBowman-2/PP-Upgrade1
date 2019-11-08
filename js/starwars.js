@@ -57,40 +57,125 @@ species.forEach(function(type) {
 
 });
 
+
+
 const maleCharacters = people.filter(person => person.gender === 'male' || person.gender === 'hermaphrodite')
 console.log(maleCharacters)
 
-const femaleCharacters = people.filter(person => person.gender === 'female' || person.gender === 'hermaphrodite')
-console.log(femaleCharacters)
-
-const droidCharacters = people.filter(person => person.gender !== 'male' && person.gender !== 'female' && person.gender !== 'hermaphrodite')
-console.log(droidCharacters)
+const noMaleDroid = people.filter(person => person.gender === 'male' || person.gender === 'hermaphrodite' || person.gender === 'n/a' || person.gender === 'none')
+console.log(maleCharacters)
 
 const allCharacters = people.filter(person => person.gender)
 console.log(allCharacters)
+
+const femaleCharacters = people.filter(person => person.gender === 'female' || person.gender === 'hermaphrodite')
+  console.log(femaleCharacters)
+
+const noFemaleCharacters = people.filter(person => person.gender === 'female' || person.gender === 'hermaphrodite' || person.gender === 'n/a' || person.gender === 'none')
+  console.log(femaleCharacters)
+
+
+
+  const noMaleFemale = people.filter(person => person.gender === 'male' || person.gender === 'female' || person.gender === 'hermaphrodite')
+  console.log(femaleCharacters)
+
+  const droidCharacters = people.filter(person => person.gender !== 'male' && person.gender !== 'female' && person.gender !== 'hermaphrodite')
+  console.log(droidCharacters)
+
+  allCharacters.forEach(function(person) {
+    let personDiv = document.createElement('div')
+    let name = document.createElement('h3')
+    let gender = document.createElement('p')
+    let pic = document.createElement('img')
+
+    personDiv.appendChild(name)
+    personDiv.appendChild(gender)
+    personDiv.appendChild(pic)
+
+    let charNum = getCharNum(person.url)
+
+    name.textContent = person.name
+    
+    pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
+    
+    mainArea.appendChild(personDiv)
+
+});
+
+  const allDivs = Array.from(document.querySelectorAll('div'))
   
 
-/* let maleButton = document.createElement('button')
-  maleButton.textContent = "Male Charaters"
-  maleButton.addEventListener('click', () => {
-    femaleCharacters.forEach(elt => {
+  
 
-      let matchedDiv = allDivs.filter(element => {
+
+let maleButton = document.createElement('button')
+  maleButton.textContent = 'Male Characters'
+  maleButton.addEventListener('click', () => {
+    noFemaleCharacters.forEach(elt => {
+
+      let matchedDiv = allDivs.find(element => {
         return element.firstChild.textContent === elt.name
       })
-      matchedDiv[0].setAttribute("style", "display: none;")
+      if(matchedDiv.getAttribute("style") === "display: none;") {
+        console.log(matchedDiv)
+        matchedDiv.setAttribute("style", "display: revert;")
+      }
+      else {
+        matchedDiv.setAttribute("style", "display: none;")
+      }
 
     })
-    
+  })
+ 
+  let femaleButton = document.createElement('button')
+  femaleButton.textContent = 'Female Characters'
+  femaleButton.addEventListener('click', () => {
+    noMaleDroid.forEach(elt => {
 
+      let matchedDiv = allDivs.find(element => {
+        return element.firstChild.textContent === elt.name
+      })
+      if(matchedDiv.getAttribute("style") === "display: none;") {
+        console.log(matchedDiv)
+        matchedDiv.setAttribute("style", "display: revert;")
+      }
+      else {
+        matchedDiv.setAttribute("style", "display: none;")
+      }
 
-  }) */
+    })
+  })
 
-  let maleButton = document.createElement('button')
+  let droidButton = document.createElement('button')
+  droidButton.textContent = 'Droids'
+  droidButton.addEventListener('click', () => {
+    noMaleFemale.forEach(elt => {
+
+      let matchedDiv = allDivs.find(element => {
+        return element.firstChild.textContent === elt.name
+      })
+      if(matchedDiv.getAttribute("style") === "display: none;") {
+        console.log(matchedDiv)
+        matchedDiv.setAttribute("style", "display: revert;")
+      }
+      else {
+        matchedDiv.setAttribute("style", "display: none;")
+      }
+
+    })
+  })
+
+  
+ 
+
+  /*let maleButton = document.createElement('button')
   maleButton.textContent = "Male Charaters"
   maleButton.addEventListener('click', () => {
-  
-    maleCharacters.forEach(function(person) {
+
+    
+
+    maleCharacters.forEach(function(person){
+
       let personDiv = document.createElement('div')
       let name = document.createElement('h3')
       let gender = document.createElement('p')
@@ -106,13 +191,12 @@ console.log(allCharacters)
       
       pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
 
-
       mainArea.appendChild(personDiv)
 
-  })
+    })
 
+  });
 
-  })
 
   /* maleCharacters.forEach(function(person) {
       let personDiv = document.createElement('div')
@@ -145,13 +229,6 @@ console.log(allCharacters)
       }
     
 
-  
-
-
-
-
-
-const allDivs = Array.from(mainArea.querySelectorAll('div'))
 
 /*let allButton = document.createElement('button')
   allButton.textContent = "All Characters"
@@ -168,11 +245,15 @@ const allDivs = Array.from(mainArea.querySelectorAll('div'))
 
   })*/
 
-
-  let allButton = document.createElement('button')
-  allButton.textContent = "All Characters"
-  allButton.addEventListener('click', () => {
   
+  
+
+
+  /*let allButton = document.createElement('button')
+  allButton.textContent = "All Characters"
+
+   allButton.addEventListener('click', () => {
+
     allCharacters.forEach(function(person) {
       let personDiv = document.createElement('div')
       let name = document.createElement('h3')
@@ -194,7 +275,7 @@ const allDivs = Array.from(mainArea.querySelectorAll('div'))
 
   })
     
-
+ 
 
   })
 
@@ -220,9 +301,14 @@ const allDivs = Array.from(mainArea.querySelectorAll('div'))
 
   })*/
 
-  let femaleButton = document.createElement('button')
+  
+  
+  
+
+  /*let femaleButton = document.createElement('button')
   femaleButton.textContent = "Female Characters"
   femaleButton.addEventListener('click', () => {
+
   
     femaleCharacters.forEach(function(person) {
       let personDiv = document.createElement('div')
@@ -249,10 +335,13 @@ const allDivs = Array.from(mainArea.querySelectorAll('div'))
 
   })
   
+  
 
   let droidButton = document.createElement('button')
   droidButton.textContent = "Droids"
   droidButton.addEventListener('click', () => {
+
+    
   
     droidCharacters.forEach(function(person) {
       let personDiv = document.createElement('div')
@@ -278,8 +367,9 @@ const allDivs = Array.from(mainArea.querySelectorAll('div'))
 
   })
  
+  */
 
-  mainHeader.appendChild(allButton)
+
   mainHeader.appendChild(maleButton)
   mainHeader.appendChild(femaleButton)
   mainHeader.appendChild(droidButton)
