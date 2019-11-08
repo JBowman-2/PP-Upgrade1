@@ -144,6 +144,7 @@ h3 {
     margin: 2%;
 
     background-color: white;
+    border: red solid 1px;
     border-radius: 25px;
     
 }
@@ -198,6 +199,7 @@ img {
 #auto div {
     margin: 2%;
     background-color: white;
+    border: red solid 1px;
     border-radius: 25px;
 
 }
@@ -223,6 +225,7 @@ img {
 #species div {
     margin: 2%;
     background-color: white;
+    border: red solid 1px;
     border-radius: 25px;
     margin-bottom: 2.5rem;
 }

@@ -54,6 +54,7 @@ species.forEach(function(type) {
 
 
   speciesArea.appendChild(typeDiv)
+  
 
 });
 
