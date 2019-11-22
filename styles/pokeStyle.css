@@ -11,8 +11,8 @@ body {
 main {
     margin: 2%;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem;
     padding-bottom: 5rem;
     /* background: linear-gradient(to bottom, black 15%, rgba(68, 67, 78, 0.945) 100%)  */
     
@@ -31,17 +31,20 @@ main {
 }*/
 
 img {
-    width: 215px;
+    width: 150px;
     border-radius: 25px;
+    margin-top: 25px;
 
 }
 
 .scene {
     width: 200px;
     height: 260px;
-    border: 1px solid #CCC;
-    margin: 40px 0;
+   
+    margin: 10px;
     perspective: 600px;
+    border-radius: 10px;
+    line-height: 85px;
   }
   
   .card {
@@ -51,6 +54,7 @@ img {
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
+    
   }
   
   .card.is-flipped {
@@ -58,23 +62,43 @@ img {
   }
   
   .card__face {
+    border: 1px solid #CCC;
     position: absolute;
     width: 100%;
     height: 100%;
-    line-height: 260px;
     color: white;
     text-align: center;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 15px;
     backface-visibility: hidden;
   }
   
   .card__face--front {
      background: red;
+     border-radius: 10px;
+     font-size: 20px;
+     
   }
   
   .card__face--back {
     background: blue;
     transform: rotateY(180deg);
+    border-radius: 10px;
+  }
+
+  h3 {
+
+      margin: 0px;
+      line-height: 50px;
   }
   
+button {
+    margin: 0px 2%;
+    width: 200px;
+    height: 75px;
+    font-size: 1.5rem;
+    border-radius: 15px;
+    color: red;
+
+
+}

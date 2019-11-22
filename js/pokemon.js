@@ -1,3 +1,4 @@
+
 async function getAPIData(url) {
     try {
         const responce = await fetch(url)
@@ -11,7 +12,9 @@ async function getAPIData(url) {
 
 }
 
-const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/')
+
+
+const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
 .then(data => {
     for (const pokemon of data.results) {
         getAPIData(pokemon.url)
@@ -46,9 +49,12 @@ function populateDOM(single_pokemon) {
 
     let pokeNum = getPokeNumber(single_pokemon.id)
     pokeFront.appendChild(name)
-    name.textContent = `${single_pokemon.name} height: ${single_pokemon.height}`
+    name.textContent = `${single_pokemon.name[0].toUpperCase()}${single_pokemon.name.slice(1)}`
+    /* height: ${single_pokemon.height}*/
 
-    pic.src = `../images/pokeimages/${pokeNum}.png`
+    //pic.src = `../images/pokeimages/${pokeNum}.png`
+    pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
+
     pokeFront.appendChild(pic)
     pokeFront.appendChild(name)
     
@@ -68,10 +74,11 @@ function populateDOM(single_pokemon) {
 
 function fillCardBack(pokeBack, data) {
     let pokeOrder = document.createElement('p')
-    pokeOrder.textContent = pokeBack.order
+    let pokeHP = document.createElement('h3')
+    pokeOrder.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)} ID# = ${data.id}`
+    pokeHP.textContent = `Hit Points = ${data.stats[0].base_stat}`
     pokeBack.appendChild(pokeOrder)
-
-
+    pokeBack.appendChild(pokeHP)
 }
 
 function getPokeNumber(id) {
