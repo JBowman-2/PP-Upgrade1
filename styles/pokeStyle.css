@@ -1,6 +1,10 @@
-
+body, main { 
+    margin: 0px;
+    padding: 0px;
+}
 
 #main {
+    margin: 2%;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 2rem;
@@ -16,7 +20,9 @@
     margin: 2%;
     background-color: white;
     border: red solid 1px;
-    border-radius: 15px
+    border-radius: 15px;
+    padding-top: 34px;
+   
 }
 
 img {
