@@ -120,7 +120,8 @@ function populateDOM(single_pokemon) {
 function fillCardBack(pokeBack, data) {
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('h3')
-    pokeOrder.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)} ID# = ${data.id}`
+    //pokeOrder.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)} ID# = ${data.id}`
+    pokeOrder.textContent = `Pokemon ID# = ${data.id}`
     pokeHP.textContent = `Hit Points = ${data.stats[0].base_stat}`
     pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeHP)
