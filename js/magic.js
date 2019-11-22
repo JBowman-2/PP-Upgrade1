@@ -1,33 +1,4 @@
-const allMagic = ( async () => {
-const response = await fetch('https://api.magicthegathering.io/v1/cards/3')
-const myJson = await response.json()
-console.log(JSON.stringify(myJson))
-})
-
-console.log(allMagic())
-
-/*maleCharacters.forEach(function(person) {
-    let personDiv = document.createElement('div')
-    let name = document.createElement('h3')
-    let gender = document.createElement('p')
-    let pic = document.createElement('img')
-
-    personDiv.appendChild(name)
-    personDiv.appendChild(gender)
-    personDiv.appendChild(pic)
-
-    let charNum = getCharNum(person.url)
-
-    name.textContent = person.name
-    
-    pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-
-
-    mainArea.appendChild(personDiv)
-
-})*/
-
-async function getMagicData(url) {
+async function getAPIData(url) {
     try {
         const responce = await fetch(url)
         const data = await responce.json()
@@ -39,3 +10,60 @@ async function getMagicData(url) {
     }
 
 }
+
+const theData = getAPIData('https://api.magicthegathering.io/v1/cards') 
+.then(data => {
+   console.log(data)
+   .then(magicdata => {
+    populateDOM(magicdata)
+
+    //for (const magic of data.cards) {
+       
+
+        /*
+        getAPIData(magic.url)
+        .then(magicdata => {
+            console.log(magicdata)
+        })*/
+    })
+})
+
+console.log(theData)
+let mainArea = document.querySelector('main')
+
+function populateDOM(single_magic) {
+    let magicDiv = document.createElement('div')
+    let name = document.createElement('h3')
+    let pic = document.createElement('img')
+
+   // pokeDiv.setAttribute('class', 'charDivs')
+   // pic.setAttribute('class', 'picDivs')
+
+   //let pokeNum = getPokeNumber(single_pokemon.id)
+
+    name.textContent = single_magic.name
+
+    pic.src = `../images/pokeimages/${pokeNum}.png`
+
+    pokeDiv.appendChild(name)
+    pokeDiv.appendChild(pic)
+
+
+    mainArea.appendChild(pokeDiv)
+
+}
+
+
+
+
+
+
+/*const allMagic = ( async () => {
+const response = await fetch('https://api.magicthegathering.io/v1/cards')
+const myJson = await response.json()
+console.log(JSON.stringify(myJson))
+})
+
+console.log(allMagic())*/
+
+
