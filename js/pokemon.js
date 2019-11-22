@@ -132,7 +132,7 @@ function getPokeNumber(id) {
     if(id > 9 && id < 100) {
         return `0${id}`}
     else return id
-    
+     
 }
 
 /*function getPokeNumber(charUrl) {
