@@ -1,4 +1,46 @@
 
+/*class Pokemon {
+    constructor(id, name, stats) {
+        this.id = id
+        this.name = name
+        this.base_stat = stats
+    }
+}
+
+const Thoremon = new Pokemon(900, 'Thoremon', 130)
+*/
+
+function getRandom(min, max) {
+    return Math.round(Math.random() * (max - min) + min);
+}
+
+/*document.querySelector('button').addEventListener('click', () => {
+    let pokeId = getRandom(26, 808)
+    console.log(pokeId)
+    let pokeIdNum = parseInt(pokeId, 10)
+    if (pokeIdNum > 807) {
+        alert('to high')
+        return
+    } else {
+        getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+        .then(result => {
+            populateDOM(result)
+            
+            
+        })
+        .catch(error => console.log(error))
+    }
+})*/
+
+document.querySelector('button').addEventListener('click', () => {
+    let pokeId = getRandom(26, 808)
+    getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
+        .then(result => {
+            populateDOM(result)
+    })   
+})
+
+
 async function getAPIData(url) {
     try {
         const responce = await fetch(url)
@@ -20,6 +62,7 @@ const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
         getAPIData(pokemon.url)
             .then(pokedata => {
             populateDOM(pokedata)
+            
         })
 
     }
@@ -65,6 +108,8 @@ function populateDOM(single_pokemon) {
 
 
     mainArea.appendChild(pokeScene)
+
+    pokeScene.classList.add('animated', 'rotateInDownLeft')
 
     pokeCard.addEventListener( 'click', function() {
         pokeCard.classList.toggle('is-flipped');
