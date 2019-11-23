@@ -10,9 +10,47 @@
 const Thoremon = new Pokemon(900, 'Thoremon', 130)
 */
 
+class Pokemon {
+    constructor(name, id, hp, type, ability, pic) {
+        this.name = name
+        this.id = id
+        this.hp = hp
+        this.type = type
+        this.ability = ability
+        this.pic = pic
+    }
+}
+
+const Custom = new Pokemon 
+
+
 function getRandom(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
+
+document.querySelector('#customButton').addEventListener('click', () => {
+    let pokeName = prompt('What is your Pokemon named?')
+    console.log(pokeName)
+    let pokeId = prompt('Give your Pokemon an ID number.')
+    console.log(pokeId)
+    let pokeHp = prompt('How much Hit Points does your Pokemon Have?')
+    console.log(pokeHp)
+    let pokeType = prompt('What type of Pokemon is it?')
+    console.log(pokeType)
+    let pokeAbility = prompt('What Ability does your Pokemon have')
+    console.log(pokeAbility)
+    let customImg = document.createElement('img')
+
+    customImg.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3sA53JQ1kAqkYC5nJDjzH9ws0iWxuYH_kbW3P3OXhFz411TJwaA&s'
+
+    let customPoke = new Pokemon(pokeName, pokeId, pokeHp, pokeType, pokeAbility, customImg)
+    console.log(customPoke)
+
+    populateDOM(customPoke)
+
+
+
+})
 
 document.querySelector('#idButton').addEventListener('click', () => {
     let pokeId = prompt('Enter the Pokemons ID Number')
