@@ -122,9 +122,16 @@ p {
 
 .sprite {
   display: flex;
-  margin: 0px 0px 0px 95px;
+  justify-content: center;
+  margin: 0px 0px 10px 95px;
   width: 100px;
   border-radius: 25px;
-
-
 }
+
+.spriteCustom {
+  margin: 10px 35px;
+  width: 125px;
+  border-radius: 25px;
+}
+
+

@@ -1,27 +1,13 @@
 
-/*class Pokemon {
-    constructor(id, name, stats) {
-        this.id = id
-        this.name = name
-        this.base_stat = stats
-    }
-}
-
-const Thoremon = new Pokemon(900, 'Thoremon', 130)
-*/
-
-class Pokemon {
-    constructor(name, id, hp, type, ability, pic) {
+class customPokemon {
+    constructor(name, id, hp, type, ability) {
         this.name = name
         this.id = id
         this.hp = hp
         this.type = type
         this.ability = ability
-        this.pic = pic
     }
 }
-
-const Custom = new Pokemon 
 
 
 function getRandom(min, max) {
@@ -30,25 +16,15 @@ function getRandom(min, max) {
 
 document.querySelector('#customButton').addEventListener('click', () => {
     let pokeName = prompt('What is your Pokemon named?')
-    console.log(pokeName)
     let pokeId = prompt('Give your Pokemon an ID number.')
-    console.log(pokeId)
     let pokeHp = prompt('How much Hit Points does your Pokemon Have?')
-    console.log(pokeHp)
     let pokeType = prompt('What type of Pokemon is it?')
-    console.log(pokeType)
     let pokeAbility = prompt('What Ability does your Pokemon have')
-    console.log(pokeAbility)
-    let customImg = document.createElement('img')
+    
 
-    customImg.src = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3sA53JQ1kAqkYC5nJDjzH9ws0iWxuYH_kbW3P3OXhFz411TJwaA&s'
+    let customPoke = new customPokemon(pokeName, pokeId, pokeHp, pokeType, pokeAbility)
 
-    let customPoke = new Pokemon(pokeName, pokeId, pokeHp, pokeType, pokeAbility, customImg)
-    console.log(customPoke)
-
-    populateDOM(customPoke)
-
-
+    populateCUSTOM(customPoke)
 
 })
 
@@ -92,6 +68,7 @@ async function getAPIData(url) {
 
 
 
+
 const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
 .then(data => {
     for (const pokemon of data.results) {
@@ -129,9 +106,7 @@ function populateDOM(single_pokemon) {
     let pokeNum = getPokeNumber(single_pokemon.id)
     pokeFront.appendChild(name)
     name.textContent = `${single_pokemon.name[0].toUpperCase()}${single_pokemon.name.slice(1)}`
-    /* height: ${single_pokemon.height}*/
-
-    //pic.src = `../images/pokeimages/${pokeNum}.png`
+   
     pic.src = `https://raw.githubusercontent.com/fanzeyi/pokemon.json/master/images/${pokeNum}.png`
 
     pokeFront.appendChild(pic)
@@ -146,7 +121,6 @@ function populateDOM(single_pokemon) {
     mainArea.appendChild(pokeScene)
 
     pokeScene.classList.add('animated', 'rotateInDownLeft')
-
     pokeCard.addEventListener( 'click', function() {
         pokeCard.classList.toggle('is-flipped');
     })
@@ -157,22 +131,16 @@ function fillCardBack(pokeBack, data) {
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('p')
     let pokeType = document.createElement('p')
-    
     let pokeAbilit = document.createElement('p')
-    let spriteS = document.createElement('img')
-    
-
+    let sprite = document.createElement('img')
     let pokeNum = (data.id)
 
-    spriteS.setAttribute('class', 'sprite')
+    sprite.setAttribute('class', 'sprite')
+    sprite.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokeNum}.png`
     
-
-
-    spriteS.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokeNum}.png`
-    
-    //pokeOrder.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)} ID# = ${data.id}`
+    pokeOrder.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)} ID# = ${data.id}`
     pokeOrder.textContent = `Pokemon ID# = ${data.id}`
-    pokeHP.textContent = `Hit Points = ${data.stats[0].base_stat}`
+    pokeHP.textContent = `Hit Points = ${data.hp}` 
     pokeType.textContent = `Type = ${data.types[0].type.name[0].toUpperCase()}${data.types[0].type.name.slice(1)}`
     
     pokeAbilit.textContent = `Ability = ${data.abilities[0].ability.name[0].toUpperCase()}${data.abilities[0].ability.name.slice(1)}`
@@ -183,10 +151,72 @@ function fillCardBack(pokeBack, data) {
     pokeBack.appendChild(pokeType)
   
     pokeBack.appendChild(pokeAbilit)
-    pokeBack.appendChild(spriteS)
+    pokeBack.appendChild(sprite)
     
-   
-    
+}
+
+// creating a custom pokemon
+
+function populateCUSTOM(single_pokemon) {
+    let pokeScene = document.createElement('div')
+    let pokeFront = document.createElement('div')
+    let pokeBack = document.createElement('div')
+    let pokeCard = document.createElement('div')
+    let name = document.createElement('h3')
+    let pic = document.createElement('img')
+
+    customFillCardBack(pokeBack, single_pokemon)
+
+    pokeScene.setAttribute('class', 'scene')
+    pokeCard.setAttribute('class', 'card')
+    pokeFront.setAttribute('class', 'card__face card__face--front')
+    pokeBack.setAttribute('class', 'card__face card__face--back')
+    pic.setAttribute('class', 'picDivs')
+ 
+    pokeFront.appendChild(name)
+    name.textContent = `${single_pokemon.name[0].toUpperCase()}${single_pokemon.name.slice(1)}`
+
+    pic.src = `../images/pokeimages/ball.png`
+
+    pokeFront.appendChild(pic)
+    pokeFront.appendChild(name)
+    pokeCard.appendChild(pokeFront)
+    pokeCard.appendChild(pokeBack)
+    pokeScene.appendChild(pokeCard)
+
+    mainArea.appendChild(pokeScene)
+
+    pokeScene.classList.add('animated', 'rotateInDownLeft')
+
+    pokeCard.addEventListener( 'click', function() {
+        pokeCard.classList.toggle('is-flipped');
+    })
+
+
+}
+
+function customFillCardBack(pokeBack, data) {
+    let pokeOrder = document.createElement('p')
+    let pokeHP = document.createElement('p')
+    let pokeType = document.createElement('p')  
+    let pokeAbilit = document.createElement('p')
+    let sprite = document.createElement('img')
+
+    sprite.setAttribute('class', 'spriteCustom')
+    sprite.src = `../images/pokeimages/logo.png`
+
+    pokeOrder.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)} ID# = ${data.id}`
+    pokeOrder.textContent = `Pokemon ID# = ${data.id}`
+    pokeHP.textContent = `Hit Points = ${data.hp}` 
+    pokeType.textContent = `Type = ${data.type[0].toUpperCase()}${data.type.slice(1)}`
+    pokeAbilit.textContent = `Ability = ${data.ability[0].toUpperCase()}${data.ability.slice(1)}`
+     
+    pokeBack.appendChild(pokeOrder)
+    pokeBack.appendChild(pokeHP)
+    pokeBack.appendChild(pokeType)
+    pokeBack.appendChild(pokeAbilit)
+    pokeBack.appendChild(sprite)
+     
 }
 
 function getPokeNumber(id) {
@@ -197,18 +227,4 @@ function getPokeNumber(id) {
      
 }
 
-/*function getPokeNumber(charUrl) {
-    let end = charUrl.lastIndexOf('/')
-    let charId = charUrl.substring(end -2, end)
-    if (charId.indexOf('/') !== -1 ) {
-      return charId.slice (1,2) }
-      else {
-        return charId }
-      }*/
-
-
-      /*var card = document.querySelector('.card');
-      card.addEventListener( 'click', function() {
-        card.classList.toggle('is-flipped');
-      });*/
 
