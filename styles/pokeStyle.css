@@ -40,11 +40,11 @@ img {
 .scene {
     width: 200px;
     height: 260px;
-   
     margin: 10px;
     perspective: 600px;
     border-radius: 10px;
     line-height: 85px;
+    
   }
   
   .card {
@@ -54,6 +54,7 @@ img {
     transform-style: preserve-3d;
     cursor: pointer;
     position: relative;
+    
     
   }
   
@@ -71,19 +72,25 @@ img {
     font-weight: bold;
     font-size: 15px;
     backface-visibility: hidden;
+    
   }
   
   .card__face--front {
-     background: red;
+     background: radial-gradient(white, black);
      border-radius: 10px;
      font-size: 20px;
+     box-shadow: 2px 2px 8px red;
      
   }
   
   .card__face--back {
-    background: blue;
+    display: flex;
+    
+    flex-direction: column;
+    background: black;
     transform: rotateY(180deg);
     border-radius: 10px;
+    box-shadow: 2px 2px 8px blue;
   }
 
   h3 {
@@ -101,4 +108,12 @@ button {
     color: red;
 
 
+}
+
+p {
+  font-size: 13px;
+  display: flex;
+  margin: 16px;
+  line-height: 20px;
+  align-items: left;
 }

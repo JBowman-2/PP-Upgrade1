@@ -119,12 +119,24 @@ function populateDOM(single_pokemon) {
 
 function fillCardBack(pokeBack, data) {
     let pokeOrder = document.createElement('p')
-    let pokeHP = document.createElement('h3')
+    let pokeHP = document.createElement('p')
+    let pokeType = document.createElement('p')
+    let pokeAbilit1 = document.createElement('p')
+    let pokeAbilit2 = document.createElement('p')
+    
     //pokeOrder.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)} ID# = ${data.id}`
     pokeOrder.textContent = `Pokemon ID# = ${data.id}`
     pokeHP.textContent = `Hit Points = ${data.stats[0].base_stat}`
+    pokeType.textContent = `Type = ${data.types[0].type.name[0].toUpperCase()}${data.types[0].type.name.slice(1)}`
+    pokeAbilit1.textContent = `Ability 1 = ${data.abilities[1].ability.name[0].toUpperCase()}${data.abilities[1].ability.name.slice(1)}`
+    pokeAbilit2.textContent = `Ability 2 = ${data.abilities[0].ability.name[0].toUpperCase()}${data.abilities[0].ability.name.slice(1)}`
+    
     pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeHP)
+    pokeBack.appendChild(pokeType)
+    pokeBack.appendChild(pokeAbilit1)
+    pokeBack.appendChild(pokeAbilit2)
+    
 }
 
 function getPokeNumber(id) {
