@@ -14,25 +14,23 @@ function getRandom(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
 
-/*document.querySelector('button').addEventListener('click', () => {
-    let pokeId = getRandom(26, 808)
+document.querySelector('#idButton').addEventListener('click', () => {
+    let pokeId = prompt('Enter the Pokemons ID Number')
     console.log(pokeId)
     let pokeIdNum = parseInt(pokeId, 10)
     if (pokeIdNum > 807) {
-        alert('to high')
+        alert('Id Number Does not exsist')
         return
     } else {
         getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
         .then(result => {
-            populateDOM(result)
-            
-            
+            populateDOM(result)     
         })
         .catch(error => console.log(error))
     }
-})*/
+})
 
-document.querySelector('button').addEventListener('click', () => {
+document.querySelector('#randButton').addEventListener('click', () => {
     let pokeId = getRandom(26, 808)
     getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
         .then(result => {
@@ -121,21 +119,35 @@ function fillCardBack(pokeBack, data) {
     let pokeOrder = document.createElement('p')
     let pokeHP = document.createElement('p')
     let pokeType = document.createElement('p')
-    let pokeAbilit1 = document.createElement('p')
-    let pokeAbilit2 = document.createElement('p')
+    
+    let pokeAbilit = document.createElement('p')
+    let spriteS = document.createElement('img')
+    
+
+    let pokeNum = (data.id)
+
+    spriteS.setAttribute('class', 'sprite')
+    
+
+
+    spriteS.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/${pokeNum}.png`
     
     //pokeOrder.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)} ID# = ${data.id}`
     pokeOrder.textContent = `Pokemon ID# = ${data.id}`
     pokeHP.textContent = `Hit Points = ${data.stats[0].base_stat}`
     pokeType.textContent = `Type = ${data.types[0].type.name[0].toUpperCase()}${data.types[0].type.name.slice(1)}`
-    pokeAbilit1.textContent = `Ability 1 = ${data.abilities[1].ability.name[0].toUpperCase()}${data.abilities[1].ability.name.slice(1)}`
-    pokeAbilit2.textContent = `Ability 2 = ${data.abilities[0].ability.name[0].toUpperCase()}${data.abilities[0].ability.name.slice(1)}`
+    
+    pokeAbilit.textContent = `Ability = ${data.abilities[0].ability.name[0].toUpperCase()}${data.abilities[0].ability.name.slice(1)}`
+    
     
     pokeBack.appendChild(pokeOrder)
     pokeBack.appendChild(pokeHP)
     pokeBack.appendChild(pokeType)
-    pokeBack.appendChild(pokeAbilit1)
-    pokeBack.appendChild(pokeAbilit2)
+  
+    pokeBack.appendChild(pokeAbilit)
+    pokeBack.appendChild(spriteS)
+    
+   
     
 }
 
