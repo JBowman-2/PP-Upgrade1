@@ -29,7 +29,7 @@ document.querySelector('#customButton').addEventListener('click', () => {
 })
 
 document.querySelector('#idButton').addEventListener('click', () => {
-    let pokeId = prompt('Enter the Pokemons ID Number')
+    let pokeId = prompt('Enter the Pokemons ID number')
     console.log(pokeId)
     let pokeIdNum = parseInt(pokeId, 10)
     if (pokeIdNum > 807) {
@@ -44,18 +44,32 @@ document.querySelector('#idButton').addEventListener('click', () => {
     }
 })
 
-
-document.querySelector('#nameButton').addEventListener('click', () => {
-    let newPokeName = prompt('Enter the Pokemons Name')
+/*document.querySelector('#nameButton').addEventListener('click', () => {
+    let newPokeName = prompt('Enter the Pokemons name')
     console.log(newPokeName)
     let pokeName = `${newPokeName[0].toLowerCase()}${newPokeName.slice(1)}`
     console.log(pokeName)
-        getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+     getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
         .then(result => {
+            if (result != 'SyntaxError') {
+                alert('That Pokemon does not exist')
+                return
+            } else {
             populateDOM(result)
-   
-    })
-    
+            }
+    })*/
+
+
+
+document.querySelector('#nameButton').addEventListener('click', () => {
+    let newPokeName = prompt('Enter the Pokemons name')
+    console.log(newPokeName)
+    let pokeName = `${newPokeName[0].toLowerCase()}${newPokeName.slice(1)}`
+    console.log(pokeName)
+     getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+        .then(result => {
+                populateDOM(result)
+            })  
 })
 
 document.querySelector('#randButton').addEventListener('click', () => {
@@ -77,11 +91,11 @@ async function getAPIData(url) {
 
     catch(error) {
         console.error(error)
+        alert(`That Pokemon dosen't exist`)
+       
     }
 
 }
-
-
 
 
 const theData = getAPIData('https://pokeapi.co/api/v2/pokemon/?limit=25')
