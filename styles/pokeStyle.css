@@ -143,7 +143,7 @@ button {
     font-size: 1.75rem;
     border-radius: 15px;
     color: #0a2f86;
-    border: 2px solid #0a2f86;
+    border: 3px solid #0a2f86;
     background: linear-gradient(to bottom, white 45%, #666666 100%);
     margin-bottom: 3rem;
 
