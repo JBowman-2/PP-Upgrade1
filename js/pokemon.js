@@ -33,7 +33,7 @@ document.querySelector('#idButton').addEventListener('click', () => {
     console.log(pokeId)
     let pokeIdNum = parseInt(pokeId, 10)
     if (pokeIdNum > 807) {
-        alert('Id Number Does not exsist')
+        alert('Id Number Does not Exist')
         return
     } else {
         getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
@@ -44,12 +44,27 @@ document.querySelector('#idButton').addEventListener('click', () => {
     }
 })
 
+
+document.querySelector('#nameButton').addEventListener('click', () => {
+    let newPokeName = prompt('Enter the Pokemons Name')
+    console.log(newPokeName)
+    let pokeName = `${newPokeName[0].toLowerCase()}${newPokeName.slice(1)}`
+    console.log(pokeName)
+        getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
+        .then(result => {
+            populateDOM(result)
+   
+    })
+    
+})
+
 document.querySelector('#randButton').addEventListener('click', () => {
     let pokeId = getRandom(26, 808)
     getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeId}`)
         .then(result => {
             populateDOM(result)
     })   
+    .catch(error => console.log(error))
 })
 
 
@@ -140,7 +155,7 @@ function fillCardBack(pokeBack, data) {
     
     pokeOrder.textContent = `${data.name[0].toUpperCase()}${data.name.slice(1)} ID# = ${data.id}`
     pokeOrder.textContent = `Pokemon ID# = ${data.id}`
-    pokeHP.textContent = `Hit Points = ${data.hp}` 
+    pokeHP.textContent = `Hit Points = ${data.stats[0].base_stat}` 
     pokeType.textContent = `Type = ${data.types[0].type.name[0].toUpperCase()}${data.types[0].type.name.slice(1)}`
     
     pokeAbilit.textContent = `Ability = ${data.abilities[0].ability.name[0].toUpperCase()}${data.abilities[0].ability.name.slice(1)}`
