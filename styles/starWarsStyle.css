@@ -238,7 +238,6 @@ img {
 footer { 
     display: flex;
     justify-content: flex-end;
-    
     background-color: black;
     padding: 35px;
     font-size: 1rem;

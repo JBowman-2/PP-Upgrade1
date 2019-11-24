@@ -8,8 +8,14 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+#wrap {
+  margin: 0 auto;
+  max-width: 1200px;
+  box-shadow: 5px 5px 10px grey;
+}
+
 main {
-    margin: 2%;
+    margin: 0px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 1rem;
@@ -18,17 +24,6 @@ main {
     
 }
 
-/*#main div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2%;
-    background-color: white;
-    border: red solid 1px;
-    border-radius: 15px;
-    padding-top: 34px;
-   
-}*/
 
 img {
     width: 150px;
@@ -36,7 +31,6 @@ img {
     margin-top: 25px;
 
 }
-
 
 
 .scene {
@@ -97,20 +91,32 @@ img {
   }
 
   h3 {
-
       margin: 0px;
       line-height: 50px;
+      font-size: 1.5rem;
   }
   
 button {
     margin: 0px 2%;
     width: 200px;
     height: 75px;
+    font-weight: 700;
     font-size: 1.5rem;
     border-radius: 15px;
-    color: red;
+    color: blue;
+    border: 2px solid blue;
+    margin-bottom: 3rem;
 
+}
 
+button:hover {
+  background-color: black;
+  font-weight: 700;
+  color: red;
+  border-radius: 15px;
+  font-size: 1.75rem;
+  padding: 15px;
+  border: 2px solid white;
 }
 
 p {
@@ -138,10 +144,25 @@ p {
 #additional {
   color: blue;
   text-align: center;
+  margin-top: 0px;
 }
 
 #moreCard {
   display: flex;
   justify-content: center;
   margin-top: 50px;
+}
+
+footer { 
+  display: flex;
+  justify-content: flex-end;
+  background-color: black;
+  padding: 35px;
+  border-top: 3px solid red;
+}
+
+footer p {
+   margin-right: 2%;
+   font-size: 1rem;
+   color: white;
 }
