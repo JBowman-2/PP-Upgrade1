@@ -4,14 +4,34 @@ body, main {
 }
 
 body {
-    background-color: gray;
+    /*background-color: gray;*/
     font-family: 'Open Sans', sans-serif;
+    background-color: gray;
 }
 
+
+
+#headImg {
+  margin: 0px;
+  width: 100%;
+  border-radius: 0px;
+  background-color: black;
+
+
+}
+
+#spacer {
+  background-color: black;
+  padding: 15px;
+  margin-top: 0px;
+  border-bottom: 3px solid red;
+  
+}
 #wrap {
   margin: 0 auto;
   max-width: 1200px;
   box-shadow: 5px 5px 10px grey;
+  
 }
 
 main {
@@ -27,7 +47,6 @@ main {
 
 img {
     width: 150px;
-    border-radius: 25px;
     margin-top: 25px;
 
 }
