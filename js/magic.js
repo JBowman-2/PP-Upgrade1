@@ -16,15 +16,6 @@ const theData = getAPIData('https://api.magicthegathering.io/v1/cards')
    console.log(data)
    .then(magicdata => {
     populateDOM(magicdata)
-
-    //for (const magic of data.cards) {
-       
-
-        /*
-        getAPIData(magic.url)
-        .then(magicdata => {
-            console.log(magicdata)
-        })*/
     })
 })
 
