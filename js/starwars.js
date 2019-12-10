@@ -5,8 +5,6 @@ import { species } from '../assets/species.js'
 
 console.log('this is Javascript on the page')
 
-// let videoArea = document.querySelector('#movie')
-
 
 let mainHeader = document.querySelector('#mainHeader')
 
@@ -189,62 +187,7 @@ let maleButton = document.createElement('button')
   })
 
   
-  
-
-
-  
  
-
-  /*let maleButton = document.createElement('button')
-  maleButton.textContent = "Male Charaters"
-  maleButton.addEventListener('click', () => {
-
-    
-
-    maleCharacters.forEach(function(person){
-
-      let personDiv = document.createElement('div')
-      let name = document.createElement('h3')
-      let gender = document.createElement('p')
-      let pic = document.createElement('img')
-
-      personDiv.appendChild(name)
-      personDiv.appendChild(gender)
-      personDiv.appendChild(pic)
-
-      let charNum = getCharNum(person.url)
-
-      name.textContent = person.name
-      
-      pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-
-      mainArea.appendChild(personDiv)
-
-    })
-
-  });
-
-
-  /* maleCharacters.forEach(function(person) {
-      let personDiv = document.createElement('div')
-      let name = document.createElement('h3')
-      let gender = document.createElement('p')
-      let pic = document.createElement('img')
-
-      personDiv.appendChild(name)
-      personDiv.appendChild(gender)
-      personDiv.appendChild(pic)
-
-      let charNum = getCharNum(person.url)
-
-      name.textContent = person.name
-      
-      pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-
-
-      mainArea.appendChild(personDiv)
-
-  });*/
 
   function getCharNum(charUrl) {
     let end = charUrl.lastIndexOf('/')
@@ -257,144 +200,6 @@ let maleButton = document.createElement('button')
     
 
 
-/*let allButton = document.createElement('button')
-  allButton.textContent = "All Characters"
-  allButton.addEventListener('click', () => {
-    allCharacters.forEach(elt => {
-
-      let matchedDiv = allDivs.filter(element => {
-        return element.firstChild.textContent === elt.name
-      })
-      matchedDiv[0].setAttribute("style", "display: revert;")
-
-    })
-
-
-  })*/
-
-  
-  
-
-
-  /*let allButton = document.createElement('button')
-  allButton.textContent = "All Characters"
-
-   allButton.addEventListener('click', () => {
-
-    allCharacters.forEach(function(person) {
-      let personDiv = document.createElement('div')
-      let name = document.createElement('h3')
-      let gender = document.createElement('p')
-      let pic = document.createElement('img')
-
-      personDiv.appendChild(name)
-      personDiv.appendChild(gender)
-      personDiv.appendChild(pic)
-
-      let charNum = getCharNum(person.url)
-
-      name.textContent = person.name
-      
-      pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-
-
-      mainArea.appendChild(personDiv)
-
-  })
-    
- 
-
-  })
-
-
-
-
-
-
-/*
-
-  let femaleButton = document.createElement('button')
-  femaleButton.textContent = "Female Characters"
-  femaleButton.addEventListener('click', () => {
-    maleCharacters.forEach(elt => {
-
-      let matchedDiv = allDivs.filter(element => {
-        return element.firstChild.textContent === elt.name
-      })
-      matchedDiv[0].setAttribute("style", "display: none;")
-
-    })
-
-
-  })*/
-
-  
-  
-  
-
-  /*let femaleButton = document.createElement('button')
-  femaleButton.textContent = "Female Characters"
-  femaleButton.addEventListener('click', () => {
-
-  
-    femaleCharacters.forEach(function(person) {
-      let personDiv = document.createElement('div')
-      let name = document.createElement('h3')
-      let gender = document.createElement('p')
-      let pic = document.createElement('img')
-
-      personDiv.appendChild(name)
-      personDiv.appendChild(gender)
-      personDiv.appendChild(pic)
-
-      let charNum = getCharNum(person.url)
-
-      name.textContent = person.name
-      
-      pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-
-
-      mainArea.appendChild(personDiv)
-
-  })
-
-  
-
-  })
-  
-  
-
-  let droidButton = document.createElement('button')
-  droidButton.textContent = "Droids"
-  droidButton.addEventListener('click', () => {
-
-    
-  
-    droidCharacters.forEach(function(person) {
-      let personDiv = document.createElement('div')
-      let name = document.createElement('h3')
-      let gender = document.createElement('p')
-      let pic = document.createElement('img')
-
-      personDiv.appendChild(name)
-      personDiv.appendChild(gender)
-      personDiv.appendChild(pic)
-
-      let charNum = getCharNum(person.url)
-
-      name.textContent = person.name
-      
-      pic.src = `https://starwars-visualguide.com/assets/img/characters/${charNum}.jpg`
-
-
-      mainArea.appendChild(personDiv)
-
-  })
-
-
-  })
- 
-  */
 
   
   mainHeader.appendChild(maleButton)

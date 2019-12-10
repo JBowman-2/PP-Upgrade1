@@ -1,4 +1,6 @@
 
+// using construtors
+
 class customPokemon {
     constructor(name, id, hp, type, ability) {
         this.name = name
@@ -43,21 +45,6 @@ document.querySelector('#idButton').addEventListener('click', () => {
         .catch(error => console.log(error))
     }
 })
-
-/*document.querySelector('#nameButton').addEventListener('click', () => {
-    let newPokeName = prompt('Enter the Pokemons name')
-    console.log(newPokeName)
-    let pokeName = `${newPokeName[0].toLowerCase()}${newPokeName.slice(1)}`
-    console.log(pokeName)
-     getAPIData(`https://pokeapi.co/api/v2/pokemon/${pokeName}`)
-        .then(result => {
-            if (result != 'SyntaxError') {
-                alert('That Pokemon does not exist')
-                return
-            } else {
-            populateDOM(result)
-            }
-    })*/
 
 
 
